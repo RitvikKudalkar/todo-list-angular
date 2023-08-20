@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    padding: 10px;
+}
+
+.todo-container{
+    background-color: bisque;
+    padding: 10px;
+    display: inline;
+}

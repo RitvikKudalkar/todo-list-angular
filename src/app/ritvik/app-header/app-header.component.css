@@ -1,0 +1,26 @@
+.title {
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    font-weight: 900;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+  }
+  
+  .left-button,
+  .right-button {
+   
+
+    /* padding: 10px 20px; */
+
+    margin: 0 150px; 
+  }
+
+  .mat-form-field{
+    padding: 0;
+  }
