@@ -1,12 +1,17 @@
-<div class="container" *ngFor="let todo of todos">
-    <mat-checkbox #checkbox>{{todo.title}}</mat-checkbox>
+<div class="container" *ngFor="let todo of todos" >
+    <mat-checkbox #checkbox >
+        <div>
+            <p style="margin: 0;" [class.title]="todo.completed">{{todo.title}}</p>
+        </div>
+        
+    </mat-checkbox>
     <div class="to-right">
         <button class="icon" mat-raised-button (click)="onDelete()">
             <div>
                 <mat-icon class="mat_icon">delete_outline</mat-icon>
             </div>
         </button>
-        <button class="icon" mat-raised-button (click)="onEdit()">
+        <button class="icon" mat-raised-button  (click)="onEdit()">
             <div>       
                 <mat-icon class="mat_icon">edit</mat-icon>
             </div>

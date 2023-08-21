@@ -1,25 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Todo } from '../todo-item.model';
+import { TodoService } from '../todo.service';
+
 
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.css']
 })
-export class TodoItemComponent {
+export class TodoItemComponent implements OnInit  {
   todos : Todo[] = [
-    {id: 3, title: "Title 1", completed: true},
-    {id: 5, title: "Title 2", completed: false},
-    {id: 2, title: "Title 3", completed: true}
-
+ 
   ];
-  constructor() {
+
+  constructor(private todoService : TodoService) {
 
   }
 
-  onAddTodo(){
-    // this.todo.push(new Todo());
+  ngOnInit(): void {
+    this.todoService.todoAdded.subscribe(
+      ( todos : Todo[])=>{
+        this.todos = todos;
+        
+      })
   }
+
 
   toggle(event : any){
       

@@ -8,17 +8,20 @@ import { Todo } from './todo-item.model';
 export class TodoService {
   constructor() { }
 
-  todoAdded = new EventEmitter<Todo>();
+  todoAdded = new EventEmitter<Todo[]>();
 
   private todos : Todo[] = [
     new Todo(1, "Buy Fish", true),
-    new Todo(2, "Buy Chips", false)
   ]
+
+  getTodo(){
+    return this.todos.slice();
+  }
 
   addTodos(todo : Todo){
     this.todos.push(todo)
-    console.log(todo);
-    
+    console.log(this.todos);
+    this.todoAdded.emit(this.todos);
   }
 
 
