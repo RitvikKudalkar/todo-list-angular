@@ -1,11 +1,11 @@
 <div class="todo-app">
-    <h1 class="title">Todo List</h1>
+    <h1 class="title">TODO LIST</h1>
     <div class="button-group">
-      <button mat-raised-button id="addTaskBtn" class="left-button">Add Task</button>
+      <button mat-raised-button id="addTaskBtn" class="left-button" (click)="onAdd()">Add </button>
       <!-- <button mat-raised-button id="clearTasksBtn" class="right-button">Clear Tasks</button> -->
       <mat-form-field class="right-button">
         <mat-label>Choose an option</mat-label>
-        <mat-select  >
+        <mat-select>
           <mat-option value="option1">All</mat-option>
           <mat-option value="option2">Incomplete</mat-option>
           <mat-option value="option3">Complete</mat-option>

@@ -1,15 +1,16 @@
 .title {
     text-align: center;
-    margin-bottom: 50px;
-    margin-top: 50px;
+    letter-spacing: 5px;
+    font-size: 30px;
+    margin: 10px 0 20px 0;
     font-weight: 900;
   }
   
   .button-group {
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-
+    /* justify-content: center; */
+    padding: 2px;
+    align-items: center;
   }
   
   .left-button,
@@ -17,10 +18,22 @@
    
 
     /* padding: 10px 20px; */
-
+    width: 10rem;
     margin: 0 150px; 
   }
 
   .mat-form-field{
     padding: 0;
+  }
+
+  .right-button{
+    width: 100%;
+  }
+
+  .todo-app{
+    background-color: #F8F0E5;
+    padding : 5px;
+    border-radius: 10px;
+    width: 60%;
+    margin: 0 auto;
   }
