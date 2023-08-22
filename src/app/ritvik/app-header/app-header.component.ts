@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import { TodoDialogComponent } from '../todo-dialog/todo-dialog.component';
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-app-header',
@@ -8,7 +9,7 @@ import { TodoDialogComponent } from '../todo-dialog/todo-dialog.component';
   styleUrls: ['./app-header.component.css']
 })
 export class AppHeaderComponent {
-  constructor(private dialog : MatDialog) {}
+  constructor(private dialog : MatDialog, private todoService : TodoService) {}
   selectedOption = "All";
   
   onAdd(){
@@ -17,7 +18,6 @@ export class AppHeaderComponent {
   
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
- 
       });
     
   }

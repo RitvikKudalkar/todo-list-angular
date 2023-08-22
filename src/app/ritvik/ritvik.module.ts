@@ -15,6 +15,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { TodoDialogComponent } from './todo-dialog/todo-dialog.component';
+import { DialogUpdateComponent } from './dialog-update/dialog-update.component';
 
 
 
@@ -25,7 +26,8 @@ import { TodoDialogComponent } from './todo-dialog/todo-dialog.component';
     ButtonComponent,
     TodoItemComponent,
     AppContentComponent,
-    TodoDialogComponent
+    TodoDialogComponent,
+    DialogUpdateComponent
   ],
   imports: [
     CommonModule,
@@ -38,6 +40,7 @@ import { TodoDialogComponent } from './todo-dialog/todo-dialog.component';
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
+    FormsModule
 
   ],
   exports: [
@@ -45,7 +48,8 @@ import { TodoDialogComponent } from './todo-dialog/todo-dialog.component';
     ButtonComponent,
     TodoItemComponent,
     AppContentComponent,
-    TodoDialogComponent
+    TodoDialogComponent,
+    DialogUpdateComponent
   ]
 })
 export class RitvikModule { }

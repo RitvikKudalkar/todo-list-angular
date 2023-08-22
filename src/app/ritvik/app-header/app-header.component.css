@@ -15,8 +15,6 @@
   
   .left-button,
   .right-button {
-   
-
     /* padding: 10px 20px; */
     width: 10rem;
     margin: 0 150px; 
@@ -27,7 +25,7 @@
   }
 
   .right-button{
-    width: 100%;
+    width: 50%;
   }
 
   .todo-app{
@@ -36,4 +34,8 @@
     border-radius: 10px;
     width: 60%;
     margin: 0 auto;
+  }
+
+  .left-button{
+    height: 50px;
   }

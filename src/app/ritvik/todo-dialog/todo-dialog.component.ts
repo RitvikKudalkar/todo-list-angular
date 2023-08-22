@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, ViewChild, ElementRef, Inject} from '@angular/core';
 import { TodoService } from '../todo.service';
 import { Todo } from '../todo-item.model';
+
 
 @Component({
   selector: 'app-todo-dialog',
@@ -9,15 +10,14 @@ import { Todo } from '../todo-item.model';
 })
 export class TodoDialogComponent {
   statusBoolean : boolean = false;
+  counter : number = 1;
+
   constructor(private todoService : TodoService){}
 
-
-
   onTodoAdd(title : string, status : string){
-    
     this.statusBoolean = status === "incomplete" ? false : true;
-    this.todoService.addTodos(new Todo(6, title, this.statusBoolean ));
-    
+    this.todoService.addTodos(new Todo(this.counter, title, this.statusBoolean ));
+    this.counter ++;
   }
 
 }

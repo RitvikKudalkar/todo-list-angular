@@ -1,17 +1,18 @@
-<h1 mat-dialog-title>Add Todo</h1>
+<h1 mat-dialog-title>Update Todo</h1>
 <div mat-dialog-content class="form">
     <mat-form-field>
       <mat-label>Title</mat-label>
-      <input matInput #title >
+      <input matInput #title value="{{data.title}}">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Choose status</mat-label>
-        <mat-select #status  >
+        <mat-select #status [(value)]="selectedValue" >
           <mat-option value="incomplete">Incomplete</mat-option>
           <mat-option value="complete">Complete</mat-option>
         </mat-select>
       </mat-form-field>
-    <button mat-raised-button   (click)="onTodoAdd(title.value, status.value)" >Add Task</button>
+    
+      <button mat-raised-button (click)="onUpdate(title.value, status.value)">Update Task</button>
 
     
   </div>
