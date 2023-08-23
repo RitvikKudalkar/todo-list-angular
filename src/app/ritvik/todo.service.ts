@@ -1,5 +1,6 @@
 import { Injectable, EventEmitter} from '@angular/core';
 import { Todo } from './todo-item.model';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,14 +9,21 @@ import { Todo } from './todo-item.model';
 export class TodoService {
   constructor() { }
 
+  private selectedOptionSubject = new BehaviorSubject<string>('all');
+  selectedOption$ = this.selectedOptionSubject.asObservable();
   todoAdded = new EventEmitter<Todo[]>();
   todoDeleted = new EventEmitter<Todo[]>();
   onChange = new EventEmitter<void>();
+  selectedOption : string = "all";
 
-  private todos : Todo[] = []
+  todos : Todo[] = [];
+
+  setOption(option : string){
+    this.selectedOptionSubject.next(option);
+  }
 
   getTodo() : Todo[]{
-    return this.todos.slice();
+    return this.todos;
   }
 
   getLength() : number {
@@ -44,7 +52,16 @@ export class TodoService {
     this.onChange.emit();  
   }
 
-
+  selectedDisplay(option : string): Todo[]{
+    if (option === 'completed') {
+      return this.todos.filter(todo => todo.completed === true);
+    } else if (option === 'incomplete') {
+      return this.todos.filter(todo => todo.completed === false);
+    } else {
+      return this.todos;
+    }
+    
+  }
 
 
   
