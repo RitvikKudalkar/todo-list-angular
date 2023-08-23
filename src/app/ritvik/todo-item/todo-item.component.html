@@ -1,6 +1,6 @@
 <div class="container" *ngFor="let todo of todos" >
     
-    <mat-checkbox #checkbox [checked]="todo.completed">
+    <mat-checkbox #checkbox [checked]="todo.completed" (click)="onClick(todo.id)">
         <div>
             <p style="margin: 0;" [class.title]="todo.completed">{{todo.title}}</p>
         </div>

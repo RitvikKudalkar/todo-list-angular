@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Todo } from '../todo-item.model';
 import { TodoService } from '../todo.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -14,6 +14,8 @@ import { DialogUpdateComponent } from '../dialog-update/dialog-update.component'
 export class TodoItemComponent implements OnInit {
   todos: Todo[] = [];
   isComplete : string = "";
+  //currentTodo : Todo | undefined ;
+  completed : boolean = false;
 
   constructor(private todoService: TodoService, private dialog : MatDialog) {}
 
@@ -28,6 +30,14 @@ export class TodoItemComponent implements OnInit {
         this.todos = todos;
       }
     )
+  }
+ 
+  onClick(id : number){
+    //this.todos[id-1].completed = !this.todos[id-1].completed;
+    const currentTodo = this.todos.find( todo => todo.id === id);
+    if(currentTodo){
+      currentTodo.completed = !currentTodo?.completed;
+    }
   }
 
   onDelete(id: number) {
