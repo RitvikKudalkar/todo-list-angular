@@ -36,6 +36,7 @@ export class TodoItemComponent implements OnInit, OnChanges{
       }
     )
 
+    this.todos = this.todoService.getTodo();
     this.filterTodos();
 
     this.todoService.todoAdded.subscribe(
@@ -81,12 +82,13 @@ export class TodoItemComponent implements OnInit, OnChanges{
 
   onEdit(id: number, title: string, status: boolean) {
     this.isComplete = status === false ? "incomplete" : "complete";
-    this.dialog.open(DialogUpdateComponent, {
+    const dialogRef = this.dialog.open(DialogUpdateComponent, {
       data: {
         id : id,
         title : title,
         status : this.isComplete
       }
     });
+
   }
 }

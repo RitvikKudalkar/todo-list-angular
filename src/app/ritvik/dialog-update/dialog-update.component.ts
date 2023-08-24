@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { TodoService } from '../todo.service';
 
 @Component({
@@ -9,12 +9,13 @@ import { TodoService } from '../todo.service';
 })
 export class DialogUpdateComponent {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private todoService : TodoService) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private todoService : TodoService, public dialogRef: MatDialogRef<DialogUpdateComponent>,) {
     
   }
 
   selectedValue : string = this.data.status;
   onUpdate(title: string, status: boolean){
     this.todoService.updateTodos(this.data.id, title, this.selectedValue);
+    
   }
 }
